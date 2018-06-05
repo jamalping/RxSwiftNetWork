@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftNetWorkDemo {
+  umbrella header "Pods-RxSwiftNetWorkDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
