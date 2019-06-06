@@ -52,11 +52,11 @@ class LoginViewController: UIViewController {
             case .Valid(let formDic):
                 print("输入合法给出对应参数:",formDic)
                 
-                LoginVM.login(parameters: formDic).asObservable().subscribe(onNext: { (a) in
-                    print(a)
+                LoginVM.login(parameters: formDic).subscribe(onSuccess: { (user) in
+                    print(user)
                 }, onError: { (error) in
                     print(error)
-                }).disposed(by: (self?.disposeBag)!)
+                }).disposed(by: self!.disposeBag)
             }
         }).disposed(by: disposeBag)
     }

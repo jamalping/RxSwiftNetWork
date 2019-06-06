@@ -12,11 +12,8 @@ import RxSwift
 
 struct HomeVM {
     // 发送请求
-    func requst() -> Observable<Any> {
-//        return MoyaHttp<HomeApi>().configRequest().request(.getHomeMainList(parameters: ["cityCode": "440100"])).mapJSON()
-        return MoyaHttp<HomeApi>().configRequest().request(.getHomeMainList(parameters: ["channelNames": "APP-社群活动",
-                                                                                         "page": "1",
-                                                                                         "pageSize": "5",
-                                                                                         "city": "广州",])).mapJSON()
+    func requst() -> Single<Any> {
+
+        return MoyaHttp<HomeApi>().configRequest().rx.request(.getHomeMainList(parameters: ["channelNames": "APP-社群活动", "page": "1", "pageSize": "5", "city": "广州",]), callbackQueue: DispatchQueue.global()).mapJSON()
     }
 }

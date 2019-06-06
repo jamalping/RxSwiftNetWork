@@ -13,20 +13,16 @@ import RxSwift
 /// 网络请求类
 public class MoyaHttp<T: TargetType> {
     /// 发送请求
-    func configRequest() -> RxMoyaProvider<T> {
-//        RxMoyaProvider<T>.init(endpointClosure: <#T##(TargetType) -> Endpoint<TargetType>#>, requestClosure: <#T##(Endpoint<TargetType>, @escaping MoyaProvider.RequestResultClosure) -> Void#>, stubClosure: StubBehavior.never, manager: <#T##Manager#>, plugins: <#T##[PluginType]#>, trackInflights: <#T##Bool#>)
-        return RxMoyaProvider<T>.init(
-            endpointClosure: endPointClosure,
-            stubClosure: MoyaProvider.neverStub,
-            plugins: [
-            NetworkLoggerPlugin.init(verbose: true, cURL: true, responseDataFormatter: {JSONResponseDataFormatter($0)}),
-            MoyaResponseNetPlugin(),
-            spinerPlugin
-            ])
+    
+    func configRequest() -> MoyaProvider<T> {
+        return MoyaProvider<T>.init(endpointClosure: endPointClosure, requestClosure: requestClosure(endpoint:closure:), stubClosure: stubClosure, callbackQueue: DispatchQueue.global(), plugins: [loggerPlugin, spinerPlugin,accessTokenPlugin, KQMoyaResponsePlugin()], trackInflights: false)
     }
     
+    
+    
     /// 设置请求头信息
-    let endPointClosure = { (target: T) -> Endpoint<T> in
+    let endPointClosure = { (target: T) -> Endpoint in
+        
         var path = target.path
         let adapter = "/apiAdapter"
         var endPath = "" //加密
@@ -53,13 +49,6 @@ public class MoyaHttp<T: TargetType> {
             "version":"1.0",
             "timestamp":String.init(format: "%d", timeStamp)
         ]
-//        if let paramet =  target.parameters as? [String: String]{
-//            nsHeaders = nsHeaders.union(paramet)
-//        }
-        // 这两个参数，暂无
-        // 5aebdfbffa6ff000013c93a8
-//        nsHeaders["token"] = ""
-//        nsHeaders["authCode"] = ""
 
         let keyvalueString = nsHeaders.sorted(by: { (element1, element2) -> Bool in
             return element1.key < element2.key
@@ -73,16 +62,61 @@ public class MoyaHttp<T: TargetType> {
         nsHeaders["Content-Type"] = "application/json;charset=UTF-8"
         nsHeaders["Accept"] = "application/json"
 
-        let endpoint = Endpoint<T>.init(
-            url: url,
-            sampleResponseClosure: { return .networkResponse(200, target.sampleData) },
-            method: target.method,
-            parameters: target.parameters,
-            parameterEncoding: target.parameterEncoding,
-            httpHeaderFields: nsHeaders)
-        return endpoint
+        return Endpoint.init(url: url,
+                      sampleResponseClosure: { return .networkResponse(200, target.sampleData) },
+                      method: target.method,
+                      task: target.task,
+                      httpHeaderFields: nsHeaders)
     }
     
+    func requestClosure(endpoint: Endpoint, closure: MoyaProvider<T>.RequestResultClosure) {
+        do {
+            /// 判断是否有网络
+            if KQNetworkMonitorHelper.share.isAvailableNetwork() {
+                var urlRequest = try endpoint.urlRequest()
+                urlRequest.timeoutInterval = 30 // 超时时长
+                closure(.success(urlRequest))
+            }else {
+                closure(.failure(MoyaError.requestMapping("网络异常")))
+            }
+        } catch MoyaError.requestMapping(let url) {
+            closure(.failure(MoyaError.requestMapping(url)))
+        } catch MoyaError.parameterEncoding(let error) {
+            closure(.failure(MoyaError.parameterEncoding(error)))
+        } catch {
+            closure(.failure(MoyaError.underlying(error, nil)))
+        }
+    }
+    
+    /// 单元测试代码
+    func stubClosure(_ type: T) -> Moya.StubBehavior {
+        return StubBehavior.never
+    }
+    
+    /// 日志插件（moya提供）
+    lazy var loggerPlugin = NetworkLoggerPlugin.init(verbose: true, requestDataFormatter: nil, responseDataFormatter: responseDataFormatter)
+    
+    
+    
+    /// tokenPlugin
+    lazy var accessTokenPlugin = AccessTokenPlugin.init { () -> String in
+//        return UserToken.token ?? ""
+        return ""
+    }
+    
+    /// 数据格式化输出
+    ///
+    /// - Parameter data: 原始数据
+    /// - Returns: 格式化数据
+    func responseDataFormatter(_ data: Data) -> Data {
+        do {
+            let dataAsJSON = try JSONSerialization.jsonObject(with: data)
+            let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
+            return prettyData
+        } catch {
+            return data
+        }
+    }
 }
 
 /// 日志的输出

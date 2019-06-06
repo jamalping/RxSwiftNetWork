@@ -14,6 +14,10 @@
 		02505EAE207F0A3C00735B8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02505EAC207F0A3C00735B8E /* LaunchScreen.storyboard */; };
 		02505EB9207F0A3C00735B8E /* RxSwiftNetWorkDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02505EB8207F0A3C00735B8E /* RxSwiftNetWorkDemoTests.swift */; };
 		02505EC4207F0A3C00735B8E /* RxSwiftNetWorkDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02505EC3207F0A3C00735B8E /* RxSwiftNetWorkDemoUITests.swift */; };
+		183BD89A22A8F4F10057714C /* KQNetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89922A8F4F00057714C /* KQNetworkMonitor.swift */; };
+		183BD89C22A8F7540057714C /* KQMoyaResponsePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89B22A8F7540057714C /* KQMoyaResponsePlugin.swift */; };
+		183BD89E22A8F8480057714C /* KQToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89D22A8F8480057714C /* KQToken.swift */; };
+		183BD8A022A8F8660057714C /* KQKeychainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89F22A8F8660057714C /* KQKeychainTool.swift */; };
 		2CF5731B060CEC09B0B6781E /* Pods_RxSwiftNetWorkDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC17021A45FAF92450F6B8C /* Pods_RxSwiftNetWorkDemoUITests.framework */; };
 		5B81D71598B0B443B46053F0 /* Pods_RxSwiftNetWorkDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E584891CCA1B3B50C477AE /* Pods_RxSwiftNetWorkDemoTests.framework */; };
 		E634A57879D1B944A0EBD7D0 /* Pods_RxSwiftNetWorkDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F686ABE5931CF1FB7BDF8CE /* Pods_RxSwiftNetWorkDemo.framework */; };
@@ -67,6 +71,10 @@
 		02505EC5207F0A3C00735B8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A7F73E5B3CC848AA8B43DB5 /* Pods-RxSwiftNetWorkDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftNetWorkDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftNetWorkDemoTests/Pods-RxSwiftNetWorkDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		16783236E771686E63C1EBDC /* Pods-RxSwiftNetWorkDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftNetWorkDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftNetWorkDemoUITests/Pods-RxSwiftNetWorkDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		183BD89922A8F4F00057714C /* KQNetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQNetworkMonitor.swift; sourceTree = "<group>"; };
+		183BD89B22A8F7540057714C /* KQMoyaResponsePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQMoyaResponsePlugin.swift; sourceTree = "<group>"; };
+		183BD89D22A8F8480057714C /* KQToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQToken.swift; sourceTree = "<group>"; };
+		183BD89F22A8F8660057714C /* KQKeychainTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQKeychainTool.swift; sourceTree = "<group>"; };
 		1AC17021A45FAF92450F6B8C /* Pods_RxSwiftNetWorkDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftNetWorkDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78870257B8179AB51AE8CB75 /* Pods-RxSwiftNetWorkDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftNetWorkDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftNetWorkDemoTests/Pods-RxSwiftNetWorkDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F686ABE5931CF1FB7BDF8CE /* Pods_RxSwiftNetWorkDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftNetWorkDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +230,10 @@
 		F62340A02080B006007B95A7 /* Moya */ = {
 			isa = PBXGroup;
 			children = (
+				183BD89F22A8F8660057714C /* KQKeychainTool.swift */,
+				183BD89D22A8F8480057714C /* KQToken.swift */,
+				183BD89B22A8F7540057714C /* KQMoyaResponsePlugin.swift */,
+				183BD89922A8F4F00057714C /* KQNetworkMonitor.swift */,
 				F62340A12080B006007B95A7 /* Response.swift */,
 				F62340A52080B20A007B95A7 /* MoyaHttp.swift */,
 				F62340A72080B965007B95A7 /* NetworkActivityPlugin.swift */,
@@ -335,7 +347,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = C;
 				TargetAttributes = {
 					02505E9F207F0A3C00735B8E = {
@@ -344,11 +356,13 @@
 					};
 					02505EB3207F0A3C00735B8E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 02505E9F207F0A3C00735B8E;
 					};
 					02505EBE207F0A3C00735B8E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 02505E9F207F0A3C00735B8E;
 					};
@@ -444,10 +458,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftNetWorkDemo/Pods-RxSwiftNetWorkDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RxSwiftNetWorkDemo/Pods-RxSwiftNetWorkDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -457,8 +472,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -467,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftNetWorkDemo/Pods-RxSwiftNetWorkDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxSwiftNetWorkDemo/Pods-RxSwiftNetWorkDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F74FCB5B7DB0D0C800D30C77 /* [CP] Check Pods Manifest.lock */ = {
@@ -496,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F68774CA209BF81C00EF3272 /* LoginViewController.swift in Sources */,
+				183BD89C22A8F7540057714C /* KQMoyaResponsePlugin.swift in Sources */,
 				F62340A22080B006007B95A7 /* Response.swift in Sources */,
 				F62340A42080B049007B95A7 /* ApiUrl.swift in Sources */,
 				F68774D3209C2FBB00EF3272 /* Dictionary+Extension.swift in Sources */,
@@ -504,12 +521,15 @@
 				F68774CC209C00DB00EF3272 /* LoginVM.swift in Sources */,
 				F62340A82080B965007B95A7 /* NetworkActivityPlugin.swift in Sources */,
 				F6CF10532086E0BF003F027B /* HomeVM.swift in Sources */,
+				183BD8A022A8F8660057714C /* KQKeychainTool.swift in Sources */,
 				F68774D0209C081500EF3272 /* LoginAPI.swift in Sources */,
 				02505EA6207F0A3C00735B8E /* ViewController.swift in Sources */,
 				F6CF10592089E2A5003F027B /* MoyaResponseNetPlugin.swift in Sources */,
 				02505EA4207F0A3C00735B8E /* AppDelegate.swift in Sources */,
 				F69E40A32080488600BC13DA /* HomeAPI.swift in Sources */,
 				F6CF10512085FF5C003F027B /* HttpLoadServer.swift in Sources */,
+				183BD89A22A8F4F10057714C /* KQNetworkMonitor.swift in Sources */,
+				183BD89E22A8F8480057714C /* KQToken.swift in Sources */,
 				F68774CE209C034300EF3272 /* CheckValue.swift in Sources */,
 				F62340A62080B20A007B95A7 /* MoyaHttp.swift in Sources */,
 			);
@@ -580,6 +600,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -587,6 +608,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -638,6 +660,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -645,6 +668,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -686,7 +710,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = RxSwiftNetWorkDemo/Tool/Crypto/Bridging.h;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -702,7 +726,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = RxSwiftNetWorkDemo/Tool/Crypto/Bridging.h;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -718,7 +742,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxSwiftNetWorkDemo.app/RxSwiftNetWorkDemo";
 			};
@@ -735,7 +759,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxSwiftNetWorkDemo.app/RxSwiftNetWorkDemo";
 			};
@@ -751,7 +775,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RxSwiftNetWorkDemo;
 			};
@@ -767,7 +791,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RxSwiftNetWorkDemo;
 			};

@@ -15,10 +15,14 @@ enum HomeApi {
 }
 
 extension HomeApi: TargetType, XPTargetType {
+    var headers: [String : String]? {
+        return nil
+    }
+    
     /// The target's base `URL`.
     var baseURL: URL {
         switch self {
-        case .getHomeMainList(parameters: let _):
+        case .getHomeMainList(parameters: _):
             return URL.init(string: hostUrl)!
         case .commonfig:
             return URL.init(string: "https://xej.ixinyongjia.com/api-gateway-guider/xinejia/")!
@@ -39,7 +43,7 @@ extension HomeApi: TargetType, XPTargetType {
     /// The HTTP method used in the request.
     var method: Moya.Method {
         switch self {
-        case .getHomeMainList(parameters: let _):
+        case .getHomeMainList(parameters: _):
             return .post
         case .commonfig:
             return .get
@@ -69,7 +73,7 @@ extension HomeApi: TargetType, XPTargetType {
     
     /// The type of HTTP task to be performed.
     var task: Task {
-        return .request
+        return .requestPlain
     }
     
     /// Whether or not to perform Alamofire validation. Defaults to `false`.

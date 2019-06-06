@@ -1,34 +1,36 @@
 PODS:
-  - Alamofire (4.7.1)
-  - Moya/Core (8.0.3):
+  - Alamofire (4.8.2)
+  - Differentiator (3.1.0)
+  - HandyJSON (4.2.1)
+  - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - Moya/RxSwift (8.0.3):
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
     - Moya/Core
-    - RxSwift (~> 3.0)
-  - ObjectMapper (2.2.5)
-  - Result (3.2.4)
-  - RxCocoa (3.5.0):
-    - RxSwift (~> 3.4)
-  - RxDataSources (1.0.4):
-    - RxCocoa (~> 3.0)
-    - RxSwift (~> 3.0)
-  - RxSwift (3.5.0)
-  - SnapKit (4.0.0)
+    - RxSwift (~> 4.0)
+  - Result (4.1.0)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.5.0)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
-  - Moya/RxSwift (= 8.0.3)
-  - ObjectMapper (= 2.2.5)
-  - RxCocoa (= 3.5.0)
-  - RxDataSources (= 1.0.4)
-  - RxSwift (= 3.5.0)
-  - SnapKit (= 4.0.0)
+  - HandyJSON (= 4.2.1)
+  - Moya/RxSwift (~> 12.0.1)
+  - RxCocoa (~> 4.4.2)
+  - RxDataSources (= 3.1.0)
+  - SnapKit (= 4.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Differentiator
+    - HandyJSON
     - Moya
-    - ObjectMapper
     - Result
     - RxCocoa
     - RxDataSources
@@ -36,15 +38,16 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
-  Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
-  ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
-  RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
-  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 90266420c924915431d101be83890a437262a71d
+PODFILE CHECKSUM: fcf6303f5e60f064556004feb18e01257a1ac0eb
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.1

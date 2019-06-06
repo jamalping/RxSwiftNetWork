@@ -9,21 +9,13 @@
 import Foundation
 import RxSwift
 import Moya
-import ObjectMapper
 
 
 // MARK: - 拓展请求响应
 extension Response {
     // 将JSON解析为单个Model
-    public func mapObject<T: BaseMappable>(_ type: T.Type) throws -> T {
-        guard let jsonDic = try JSONSerialization.jsonObject(with: self.data, options: .allowFragments) as? [String: Any] else {
-            throw MoyaError.jsonMapping(self)
-        }
-        
-        guard let object = Mapper<T>().map(JSONObject: jsonDic) else {
-            throw MoyaError.jsonMapping(self)
-        }
-        return object
+    public func mapObject<T: Codable>(_ type: T.Type) throws -> T {
+        return try JSONDecoder().decode(T.self, from: self.data)
     }
     
     // 将JSON解析为Model数组，
@@ -37,7 +29,7 @@ extension Response {
 extension ObservableType where E == Response {
     
     /// 将JSON解析为Observable类型的Model（可观察的model）
-    public func mapObject<T: BaseMappable>(_ type: T.Type) -> Observable<T> {
+    public func mapObject<T: Codable>(_ type: T.Type) -> Observable<T> {
         return flatMap({ (response) -> Observable<T> in
             
             print(try response.mapObject(T.self))
@@ -50,6 +42,25 @@ extension ObservableType where E == Response {
 //        return flatMap({ (response) -> Observable<[T]> in
 //            print(try response.mapObject(T.self))
 //            return Observable.just(try response.mapObject(T.self))
+//        })
+//    }
+}
+
+extension PrimitiveSequenceType where TraitType == SingleTrait, ElementType == Moya.Response {
+    func mapObject<T: Codable>(_ t: T.Type) -> Single<T> {
+        return flatMap { (response) -> Single<T> in
+            print(response)
+            return Single<T>.just(try response.mapObject(T.self), scheduler: CurrentThreadScheduler.instance)
+        }
+//        return flatMap { (response) -> Single<T> in
+//
+//           return Single<T>.just(response.mapObject(T.self), scheduler: CurrentThreadScheduler)
+//        }
+    }
+    
+//    func mapArray<T: Codable>(_ t: T.Type) -> Single<[T]> {
+//        return flatMap({ (response) -> Single<[T]> in
+//            return Single<[T]>.just(try response.mapArray(t: T.self))
 //        })
 //    }
 }

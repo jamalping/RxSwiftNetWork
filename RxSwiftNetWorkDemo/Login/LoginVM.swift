@@ -47,8 +47,8 @@ class LoginVM {
     }
     
     // 登录请求
-    class func login(parameters: [String: Any]) -> Observable<UserInfo>{
-        return MoyaHttp<LoginAPI>().configRequest().request(.login(parameters: parameters)).mapObject(UserInfo.self)
+    class func login(parameters: [String: Any]) -> Single<UserInfo>{
+        return MoyaHttp<LoginAPI>().configRequest().rx.request(.login(parameters: parameters), callbackQueue: DispatchQueue.global()).mapObject(UserInfo.self)
     }
 }
 

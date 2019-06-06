@@ -15,10 +15,15 @@ enum LoginAPI {
 }
 
 extension LoginAPI: TargetType, XPTargetType {
+    /// 请求头
+    var headers: [String : String]? {
+        return nil
+    }
+    
     /// The target's base `URL`.
     var baseURL: URL {
         switch self {
-        case .login(parameters: let _):
+        case .login(parameters: _):
             return URL.init(string: testHostUrl)!
         }
     }
@@ -34,7 +39,7 @@ extension LoginAPI: TargetType, XPTargetType {
     /// The HTTP method used in the request.
     var method: Moya.Method {
         switch self {
-        case .login(parameters: let _):
+        case .login(parameters: _):
             return .post
         }
         
@@ -48,11 +53,6 @@ extension LoginAPI: TargetType, XPTargetType {
         }
     }
     
-    /// The method used for parameter encoding.
-    var parameterEncoding: ParameterEncoding {
-        return JSONEncoding.default
-    }
-    
     /// Provides stub data for use in testing.
     var sampleData: Data {
         return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!
@@ -60,7 +60,8 @@ extension LoginAPI: TargetType, XPTargetType {
     
     /// The type of HTTP task to be performed.
     var task: Task {
-        return .request
+        return .requestPlain
+//            .requestJSONEncodable(URLEncoding.default)
     }
     
     /// Whether or not to perform Alamofire validation. Defaults to `false`.

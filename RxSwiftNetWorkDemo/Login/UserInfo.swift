@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class UserInfo: Mappable {
+class UserInfo: Codable {
     var apiKey: String?
     var mobile: String?
     var resourceUrl: String?
@@ -18,16 +17,4 @@ class UserInfo: Mappable {
     var token: String?
     var bucketName: String?
     
-    func mapping(map: Map) {
-        
-    }
-    
-    required init?(map: Map) {
-        apiKey <- map["apiKey"]
-        mobile <- map["mobile"]
-        resourceUrl <- map["resourceUrl"]
-        userId <- map["userId"]
-        userName <- map["userName"]
-        bucketName <- map["bucketName"]
-    }
 }
