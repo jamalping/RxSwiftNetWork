@@ -202,7 +202,10 @@ extension Int: TypeSafeKeychainValue {
         return Data(bytes: &value, count: MemoryLayout.size(ofValue: value))
     }
     public static func value(data: Data) -> Int? {
-        return data.withUnsafeBytes { $0.pointee }
+        data.withUnsafeBytes { (unsafeRawBufferPointer) -> Int? in
+            return unsafeRawBufferPointer.baseAddress?.load(as: Int.self)
+        }
+//        return data.withUnsafeBytes { Int($0.pointee) }
     }
 }
 
@@ -212,7 +215,10 @@ extension Bool: TypeSafeKeychainValue {
         return Data(bytes: &value, count: MemoryLayout.size(ofValue: value))
     }
     public static func value(data: Data) -> Bool? {
-        return data.withUnsafeBytes { $0.pointee }
+        return data.withUnsafeBytes { (pointer) -> Bool? in
+            return pointer.baseAddress?.load(as: Bool.self)
+        }
+//        return data.withUnsafeBytes { $0.pointee }
     }
 }
 

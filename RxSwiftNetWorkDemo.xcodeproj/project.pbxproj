@@ -18,6 +18,8 @@
 		183BD89C22A8F7540057714C /* KQMoyaResponsePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89B22A8F7540057714C /* KQMoyaResponsePlugin.swift */; };
 		183BD89E22A8F8480057714C /* KQToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89D22A8F8480057714C /* KQToken.swift */; };
 		183BD8A022A8F8660057714C /* KQKeychainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BD89F22A8F8660057714C /* KQKeychainTool.swift */; };
+		184154BA22AE46F700F5CBD6 /* TestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184154B922AE46F700F5CBD6 /* TestList.swift */; };
+		184154BC22AE4A0E00F5CBD6 /* OperatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184154BB22AE4A0E00F5CBD6 /* OperatorTest.swift */; };
 		2CF5731B060CEC09B0B6781E /* Pods_RxSwiftNetWorkDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC17021A45FAF92450F6B8C /* Pods_RxSwiftNetWorkDemoUITests.framework */; };
 		5B81D71598B0B443B46053F0 /* Pods_RxSwiftNetWorkDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E584891CCA1B3B50C477AE /* Pods_RxSwiftNetWorkDemoTests.framework */; };
 		E634A57879D1B944A0EBD7D0 /* Pods_RxSwiftNetWorkDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F686ABE5931CF1FB7BDF8CE /* Pods_RxSwiftNetWorkDemo.framework */; };
@@ -75,6 +77,8 @@
 		183BD89B22A8F7540057714C /* KQMoyaResponsePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQMoyaResponsePlugin.swift; sourceTree = "<group>"; };
 		183BD89D22A8F8480057714C /* KQToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQToken.swift; sourceTree = "<group>"; };
 		183BD89F22A8F8660057714C /* KQKeychainTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQKeychainTool.swift; sourceTree = "<group>"; };
+		184154B922AE46F700F5CBD6 /* TestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestList.swift; sourceTree = "<group>"; };
+		184154BB22AE4A0E00F5CBD6 /* OperatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorTest.swift; sourceTree = "<group>"; };
 		1AC17021A45FAF92450F6B8C /* Pods_RxSwiftNetWorkDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftNetWorkDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78870257B8179AB51AE8CB75 /* Pods-RxSwiftNetWorkDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftNetWorkDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftNetWorkDemoTests/Pods-RxSwiftNetWorkDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F686ABE5931CF1FB7BDF8CE /* Pods_RxSwiftNetWorkDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftNetWorkDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +162,7 @@
 				02505EA3207F0A3C00735B8E /* AppDelegate.swift */,
 				02505EA5207F0A3C00735B8E /* ViewController.swift */,
 				F6CF10522086E0BF003F027B /* HomeVM.swift */,
+				184154B822AE46D800F5CBD6 /* RxSwift-Test */,
 				F68774C6209BF65E00EF3272 /* Login */,
 				02505EA7207F0A3C00735B8E /* Main.storyboard */,
 				02505EAA207F0A3C00735B8E /* Assets.xcassets */,
@@ -183,6 +188,15 @@
 				02505EC5207F0A3C00735B8E /* Info.plist */,
 			);
 			path = RxSwiftNetWorkDemoUITests;
+			sourceTree = "<group>";
+		};
+		184154B822AE46D800F5CBD6 /* RxSwift-Test */ = {
+			isa = PBXGroup;
+			children = (
+				184154B922AE46F700F5CBD6 /* TestList.swift */,
+				184154BB22AE4A0E00F5CBD6 /* OperatorTest.swift */,
+			);
+			path = "RxSwift-Test";
 			sourceTree = "<group>";
 		};
 		24CE392835F98CD1B47DB32F /* Frameworks */ = {
@@ -356,13 +370,13 @@
 					};
 					02505EB3207F0A3C00735B8E = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 02505E9F207F0A3C00735B8E;
 					};
 					02505EBE207F0A3C00735B8E = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 02505E9F207F0A3C00735B8E;
 					};
@@ -466,6 +480,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -478,6 +493,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -516,6 +532,8 @@
 				F62340A22080B006007B95A7 /* Response.swift in Sources */,
 				F62340A42080B049007B95A7 /* ApiUrl.swift in Sources */,
 				F68774D3209C2FBB00EF3272 /* Dictionary+Extension.swift in Sources */,
+				184154BC22AE4A0E00F5CBD6 /* OperatorTest.swift in Sources */,
+				184154BA22AE46F700F5CBD6 /* TestList.swift in Sources */,
 				F6CF10552089CED4003F027B /* Crypto.swift in Sources */,
 				F68774D5209C432600EF3272 /* UserInfo.swift in Sources */,
 				F68774CC209C00DB00EF3272 /* LoginVM.swift in Sources */,
@@ -705,12 +723,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 287XVUZAS8;
 				INFOPLIST_FILE = RxSwiftNetWorkDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = RxSwiftNetWorkDemo/Tool/Crypto/Bridging.h;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -721,12 +740,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 287XVUZAS8;
 				INFOPLIST_FILE = RxSwiftNetWorkDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = RxSwiftNetWorkDemo/Tool/Crypto/Bridging.h;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -742,7 +762,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxSwiftNetWorkDemo.app/RxSwiftNetWorkDemo";
 			};
@@ -759,7 +779,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxSwiftNetWorkDemo.app/RxSwiftNetWorkDemo";
 			};
@@ -775,7 +795,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RxSwiftNetWorkDemo;
 			};
@@ -791,7 +811,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldunion.RxSwiftNetWorkDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RxSwiftNetWorkDemo;
 			};

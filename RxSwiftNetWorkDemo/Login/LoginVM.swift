@@ -10,10 +10,11 @@ import UIKit; import RxSwift; import RxCocoa
 
 class LoginVM {
     /// MARK -- 手机号码
-    var phoneNum = Variable<String>("")
+    
+    var phoneNum = BehaviorRelay<String>.init(value: "")
     
     /// MARK -- 密码
-    var pwd = Variable<String>("")
+    var pwd = BehaviorRelay<String>.init(value: "")
     
     /// MARK -- 提交按钮
     var submitBtnTap = PublishSubject<Void>()

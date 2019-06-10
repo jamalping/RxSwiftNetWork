@@ -11,7 +11,7 @@ import Foundation
 public extension String {
     
     /// 共用方法，传参数正则表达试
-    public func isValidRegexString(regexString: String) ->Bool {
+    func isValidRegexString(regexString: String) ->Bool {
         
         do {
             

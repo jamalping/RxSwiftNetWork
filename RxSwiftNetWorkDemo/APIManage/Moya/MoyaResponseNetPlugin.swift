@@ -23,7 +23,7 @@ public final class MoyaResponseNetPlugin: PluginType {
             
             let processedResponse = Response(statusCode: -1, data: response.data, request: response.request, response: response.response)
             
-            guard let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String:Any] , let code = json?["code"] as? String , let data = json?["data"]   else{
+            guard let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String:Any] , let code = json["code"] as? String , let data = json["data"]   else{
                 return .failure(.jsonMapping(processedResponse))
             }
             if( !normalCode.contains(code) ){

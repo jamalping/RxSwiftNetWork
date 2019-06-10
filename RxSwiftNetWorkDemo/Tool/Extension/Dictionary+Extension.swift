@@ -10,7 +10,7 @@ import Foundation
 
 public extension Dictionary {
     /// 将不存在的键值对加进来。已存在的进行值得更新
-    public func union(_ dictionaries: Dictionary...) -> Dictionary {
+    func union(_ dictionaries: Dictionary...) -> Dictionary {
         var result = self
         dictionaries.forEach { (dictionary) -> Void in
             dictionary.forEach { (key, value) -> Void in

@@ -50,5 +50,13 @@ class ViewController: UIViewController {
         self.present(navg, animated: true, completion: nil)
     }
     
+    
+    @IBAction func trunpToAther(_ sender: Any) {
+        print("跳转")
+        
+        let nav = UINavigationController.init(rootViewController: TestList.init())
+        self.present(nav, animated: true, completion: nil)
+    }
+    
 }
 

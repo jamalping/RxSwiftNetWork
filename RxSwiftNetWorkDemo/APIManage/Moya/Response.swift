@@ -26,7 +26,7 @@ extension Response {
 
 
 // MARK: - 扩展请求响应
-extension ObservableType where E == Response {
+extension ObservableType where Element == Response {
     
     /// 将JSON解析为Observable类型的Model（可观察的model）
     public func mapObject<T: Codable>(_ type: T.Type) -> Observable<T> {
@@ -46,7 +46,7 @@ extension ObservableType where E == Response {
 //    }
 }
 
-extension PrimitiveSequenceType where TraitType == SingleTrait, ElementType == Moya.Response {
+extension PrimitiveSequenceType where Trait == SingleTrait, Element == Moya.Response {
     func mapObject<T: Codable>(_ t: T.Type) -> Single<T> {
         return flatMap { (response) -> Single<T> in
             print(response)

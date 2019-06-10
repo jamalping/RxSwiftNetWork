@@ -21,7 +21,7 @@ public final class KQMoyaResponsePlugin: PluginType {
             
             let processedResponse = Response(statusCode: response.statusCode, data: response.data, request: response.request, response: response.response)
             
-            guard let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String:Any], let status = json?["status"] as? Bool else{
+            guard let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String:Any], let status = json["status"] as? Bool else{
                 return .failure(.jsonMapping(processedResponse))
             }
             if(!status){
@@ -33,7 +33,7 @@ public final class KQMoyaResponsePlugin: PluginType {
 //                }
                 result = .failure(.statusCode(processedResponse)) // 业务失败
             }else{
-                let data = json?["data"]
+                let data = json["data"]
                 if let jsonDatas = data as? Data {
                     guard  let jsonData = try? JSONSerialization.data(withJSONObject: jsonDatas, options: []) else{
                         return .failure(.jsonMapping(processedResponse))
